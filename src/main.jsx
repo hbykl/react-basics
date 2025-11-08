@@ -6,7 +6,6 @@ function App(){
     <>
       <Header />
       <ProductList />
-      <List/>
     </>
   );
 }
@@ -24,13 +23,25 @@ const ProductList = () => (
   </>
 );
 function Product(){
-  return <h4>Product</h4>;
+  const productItem ={
+    "imageUrl":"1.jpg",
+    "title":"Iphone 16",
+    "description":"Lorem ipsum dolor sit amet consectetur.",
+    "price":"80000"
+  };
+  return (
+    <div>
+      <img src={"/img/"+productItem.imageUrl} alt="" />
+      <h2>{productItem.title}</h2>
+      <p>{productItem.description}</p>
+      <span>{productItem.price}</span>
+    </div>
+  );
 }
 
-const List = function (){
-  return <h3>Header3</h3>;
-}
-
+// const List = function (){
+//   return <h3>Header3</h3>;
+// }
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
