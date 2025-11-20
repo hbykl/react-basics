@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import './index.css';
 
 function App() {
   return (
@@ -11,7 +12,12 @@ function App() {
   );
 }
 function Header() {
-  return <h1>Header</h1>;
+  const style={
+    color:"red",
+    fontSize:"30px",
+    textTransform:"uppercase"
+  }
+  return <h1 style={style}>Header</h1>;
 }
 
 function ProductList() {
@@ -28,7 +34,7 @@ function ProductList() {
       "title": "Iphone 16",
       "description": "Lorem ipsum dolor sit amet consectetur.",
       "price": "80000",
-      "isActive":false
+      "isActive":true
 
     }, {
       "imageUrl": "3.jpg",
@@ -49,7 +55,7 @@ function ProductList() {
   
   return (
     <>
-      <h2>ProductList</h2>
+      <h2 className='title'>ProductList</h2>
       {items.length>0?
       (
         <div id="itemList">
@@ -81,7 +87,7 @@ function Product({ ProductObj }) {
       <img src={"/img/" + ProductObj.imageUrl} alt="" />
       <h2>{ProductObj.title}</h2>
       <p>{ProductObj.description}</p>
-      <span>{ProductObj.price}</span>
+      <span className={`f20 ${ProductObj.price<100000?"discount":"price"}`}>{ProductObj.price}</span>
     </div>
   );
 }
